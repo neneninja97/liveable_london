@@ -23,6 +23,7 @@ document.querySelector("#prof_professional_couples").addEventListener("click", f
 document.querySelector("#prof_single_income").addEventListener("click", function(){
     profSelection = "Single income owners";
 });
-document.querySelector("#prof_retirees").addEventListener("click", function(){
-    profSelection = "Retirees";
+// Using JQuery for the last bit just for fun:
+$("#prof_retirees").click(function(){
+  profSelection = "Retirees";
 });
