@@ -538,3 +538,10 @@ td{
 width: 60%;
   float:right;
 }
+
+#prof_first_time_renters{
+
+}
+#prof_first_time_renters:hover{
+  background-color: gray;
+}
