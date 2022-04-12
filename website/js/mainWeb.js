@@ -12,23 +12,29 @@ window.addEventListener("scroll", function() {
     document.querySelector("#coverPage").style.opacity = opac;
   });
 
-let profSelection = undefined;
+let profSelection;
 document.querySelector("#prof_first_time_renters").addEventListener("click", function(){
     profSelection = "First time renters";
+    console.log(profSelection);
 });
 document.querySelector("#prof_young_families").addEventListener("click", function(){
     profSelection = "Young families";
+    console.log(profSelection);
 });
 document.querySelector("#prof_older_families").addEventListener("click", function(){
     profSelection = "Older families";
+    console.log(profSelection);
 });
 document.querySelector("#prof_professional_couples").addEventListener("click", function(){
     profSelection = "Professional couples";
+    console.log(profSelection);
 });
 document.querySelector("#prof_single_income").addEventListener("click", function(){
     profSelection = "Single income owners";
+    console.log(profSelection);
 });
 // Using JQuery for the last bit just for fun:
 $("#prof_retirees").click(function(){
   profSelection = "Retirees";
+  console.log(profSelection);
 });
