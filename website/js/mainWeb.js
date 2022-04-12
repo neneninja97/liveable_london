@@ -1,19 +1,16 @@
-var nystories = document.querySelector("p").offsetTop;
-window.onscroll = function() {
-  if (window.pageYOffset > 0) {
- var opac = (window.pageYOffset / nystories);
-    console.log(opac);
-  document.body.style.background = "linear-gradient(rgba(234, 229, 221, " + opac + "), rgba(234, 229, 221, " + opac + ")), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/times-square-perspective.jpg) no-repeat";
+var checkpoint= document.querySelector("p").offsetTop;
+console.log("checkpoint is: " + checkpoint);
+window.addEventListener("scroll", function() {
+  const currentScroll = window.pageYOffset;
+  var opac;
+  if (currentScroll < checkpoint) {
+   opac = 1 - currentScroll / checkpoint;
+      console.log(opac);
+  } else {
+    opac = 0;
   }
-}
-
-Window.onscroll = function() {
-  if (window.pageYOffset > 0) {
- var opac = (window.pageYOffset / nystories);
-    console.log(opac);
-  document.body.style.background = "linear-gradient(rgba(255, 255, 255, " + opac + "), rgba(255, 255, 255, " + opac + ")), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/times-square-perspective.jpg) no-repeat";
-  }
-}
+    document.querySelector("#coverPage").style.opacity = opac;
+  });
 
 let profSelection = undefined;
 document.querySelector("#prof_first_time_renters").addEventListener("click", function(){
