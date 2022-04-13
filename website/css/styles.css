@@ -61,6 +61,7 @@
   text-align: center;
   height: 20px;
   line-height: 940px;
+  color: #000000;
 }
 
 span {
@@ -78,22 +79,107 @@ body {
   font-family: sans-serif;
 }
 
+#metricContainer {
+  background-image: url("../img/LivabilityMetric.png");
+  background-size: 50%;
+  background-position: left;
+  background-repeat: no-repeat;
+  min-height: 750px;
+}
 
+#metricDescription {
+  display: flex;
+  justify-content: right;
+  min-height: 300px;
+  place-items: center;
+  line-height: 1.4;
+}
 
-#introduction_parent_container {
+#metricDescription p {
+  font-size: 14px;
+}
+
+.card {
+  color: #ffffff;
+  background-image: url("../img/coverimage.jpg");
+  background-size: cover;
+  padding: 10rem 0 0;
+  width: 28ch;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin: 10px;
+
+  transition: transform 500ms ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-content {
+  --padding: 1.3rem;
+  padding: var(--padding);
+  background: linear-gradient(
+    hsl(0 0% 0% / 0),
+    hsl(20 0% 0% / 0.3) 10%,
+    hsl(0 0% 0% / 1)
+  );
+  transform: translateY(55%);
+  transition: transform 500ms ease;
+}
+
+.card-content > *:not(.card-title) {
+  opacity: 0;
+  transition: opacity 500ms linear;
+}
+
+.card:hover .card-content {
+  transform: translateY(0);
+}
+
+.card:hover .card-content > * {
+  opacity: 1;
+}
+
+.card-title {
   position: relative;
+  width: max-content;
 }
 
-#introduction_container {
-
+.card-body {
+  color: rgb(255, 255, 255 / 0.85);
 }
 
-#introduction_background {
-
+.card-title::after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  left: calc(var(--padding) * -1);
+  bottom: -2px;
+  width: calc(100% + var(--padding));
+  background: #FFFFFF;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 500ms ease;
 }
 
-#metric_container {
-  position:relative;
+.card:hover .card-title::after {
+  transform: scaleX(1);
+}
+
+.button {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: #000000;
+  background-color: #FFFFFF;
+  padding: 0.5em 1.25em;
+  border-radius: 0.25rem;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #f542c5;
 }
 
 #liveabilityMetric {
