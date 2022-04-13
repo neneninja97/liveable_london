@@ -33,7 +33,17 @@
 				<div class="card-content">
 					<h2 class = "card-title"> Housing </h2>
 					<p class = "card-body"> Description of housing metric </p>
-					<a href="#HousingDesc" class="button"> Detailed Description </a>
+					<button class = "button" id="open"> Detailed Description </button>
+				</div>
+			</div>
+			<div id = "modalContainer" class="modal_container">
+				<div class="modal">
+					<h2> Housing metric description </h2>
+					<p>a fuller description of how the housing metric is calculated</p>
+					<p>Hohe Stuck-Decken, wuchtige Erker, verzierte Fassaden: Wohnhäuser aus der Gründerzeit sind heute der Inbegriff des schicken Berliner Altbaus. Sie sind Zeugen der Industrialisierung im 19. Jahrhundert, als Berlin zur Millionenmetropole wurde und dringend Wohnungen für die wachsende Schar von Arbeitern und Angestellten brauchte. Die Häuserblöcke mit ihren Hinterhöfen bestimmen das Stadtbild in heute so begehrten Innenstadtkiezen, die von Flächenbombardements und späteren Abrisswellen weitgehend verschont blieben. So gilt Prenzlauer Berg als das größte zusammenhängende Gründerzeitgebiet Deutschlands.</p>
+					<button id ="close">
+					Close me
+					</button>
 				</div>
 			</div>
 			<div class = "card">
@@ -41,6 +51,15 @@
 					<h2 class = "card-title"> Environment </h2>
 					<p class = "card-body"> Description of housing metric </p>
 					<a href="" class="button"> Detailed Description </a>
+				</div>
+			</div>
+			<div id = "modalContainer" class="modal_container">
+				<div class="modal">
+					<h2> Housing metric description </h2>
+					<p>a fuller description of how the housing metric is calculated</p>
+					<button id ="close">
+					Close me
+					</button>
 				</div>
 			</div>
 			<div class = "card">
@@ -76,9 +95,8 @@
 		</div>
 	</div>
 
-	<div id = "HousingDesc" class="enhanceable">
-		<p>a fuller description of how the housing metric is calculated</p>
-	</div>
+
+
 
 
 
@@ -256,10 +274,10 @@
   </div>
 	<script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
 	<script src="./js/mainWeb.js"></script>
-</body>
 
-<!--
-  <div id="map">
-		<img src=".NEEDTOADDIMAGESOMEWHERE/img/wardmap.png" alt="wardoutline" width="100%" height="100%" />
-	</div>
--->
+<div class="map">
+
+
+</div>
+
+</body>
