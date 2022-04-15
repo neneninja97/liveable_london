@@ -24,6 +24,7 @@ close.addEventListener('click' () => {
   modalContainer.classList.remove('show');
 });
 */
+
 let profSelection;
 document.querySelector("#prof_first_time_renters").addEventListener("click", function(){
     profSelection = "First time renters";
