@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+
+<head>
+	<meta name="home">
+	<title>Liveable London</title>
+	<link rel="stylesheet" href="./css/styles.css">
+	<link rel="stylesheet" href="css/kanso.css">
+  <meta charset = "utf-8">
+  <meta name="description" content="Helping you find your ideal neighbourhood">
+  <meta name="author" content="TeamBartlett">
+</head>
+
+<body>
+
+	<div id= coverPage>
+		<h1> Liveable London </h1>
+			<h2> Finding the ideal neighbourhood for you </h2>
+		<h3> Scroll </h3>
+		<h4>
+			<a href="#mapContainer"> or proceed directly to the map </a>
+		</h4>
+		<span id="directionality">▼</span>
+		<div id="coverTagline">
+			<h2> Exploring the spatial distribution of neighbourhood typologies in </br> London through an interactive mapping tool  </h2>
+			<h5></h5>
+		</div>
+		<p>
+		Every year, 200,000 people move from different parts of the UK to live in London. On top of this, people from across the world choose to make London their home too. Whether it be for work, education, business or living closer to family and friends, it is undeniable that London offers a plethora of opportunities and reasons to relocate for diverse groups of people.
+		</p>
+		<p>
+		The myriad of options presented by London can be captivating, yet daunting at the same time. When residing at a smaller city or town, choosing where to live could be considered something easy and straightforward. Nevertheless, for a city like London this task can be quite exhausting given that it comprises many distinct neighbourhoods that suit the needs of particular groups of people.
+		</p>
+		<p>
+		To simplify the process and aid your house-hunting adventures, this tool visualises the trade-offs between different liveability metrics for locations across London.
+	  </p>
+
+	<!--
+		<h6> 1. The Liveability Metric: </h6>
+		<p>
+			Identifying main priorities when selecting a neighbourhood. Six main indicators were chosen that best represents the main factors people consider when selecting a neighbourhood - Safety, Education, Transportation, Housing (price), Environment and Neighbourhood (open spaces). A detailed description on how each metric is calculated and their justifications can be found in the section below.
+		</p>
+		<h6> 2. Profiles: </h6>
+		<p>
+			Summarising six main groups of house-hunters, with their respective priorities. These are first time renters/students, young families, older families, professional couples, single income owners and empty nesters/retirees. Each of these profiles will have prioritise three indicators of the liveability metric. Based on these priorities or profile descriptions users can pick a profile that they identify the most with.
+		</p>
+		<h6> 3. Mapping Tool: </h6>
+		<p>
+			 Identifying your ideal neighbourhood. Selecting a profile will generate a map which identifies potential neighbourhoods (at ward level) that correspond with the selected profile’s priorities. Neighbourhoods will be grouped in clusters based on how well their scores correspond with the selected profile’s priorities, allowing users to zoom in on clusters of neighbourhoods that best suit their needs.
+		</p>
+-->
+
+	</div>
+	<div class="sectionPadding"></div>
+
+	<div id = "metricDescriptionTitle">
+		<h2> Which liveability metrics are the most important to you? </h2>
+		<hr width="100%" color="grey" size="6px" align="left" />
+		<p> We understand each person has different priorities when choosing where they want to live. This could probably be driven by different factors such as lifestyle or age.</p>
+		<p> To assimilate for this flexibility, we established 6 liveability metrics that will help you evaluate the quality of life in London depending on your own priorities.</p>
+		<p> Here, we introduce each metric and how we quantify the level achieved in each area. </p>
+	</div>
+
+	<div id = "metricContainer">
+		<div id = "metricDescription">
+			<div class = "cardHse">
+				<div class="card-contentHse">
+					<h2 class = "card-titleHse"> Housing </h2>
+					<p class = "card-bodyHse"> Median house price as indicator </p>
+					<button class = "button" id = "open_housing"> Detailed Description </button>
+				</div>
+			</div>
+			<div id = "modalContainerHse" class="modal_containerHse">
+				<div class="modalHse">
+					<h2> Housing Metric </h2>
+					<p> According to the Greater London Authority, In 2014 house prices were almost 10 times median earnings in London, leading to an affordability crisis (Marsden 2015). For many Londoners, this is of prime importance.<br><br>The housing metric was created by considering the 2014 median house price data across all London wards. This dataset was obtained from the London Ward Profiles and Atlas, provided by the Greater London Authority. Median house price was considered as it gives a better understanding of house prices compared to the mean, which includes data for exceptionally expensive sales that might not be representative of the as well. Although rental data is not included within this metric, house prices do give a good indication on the corresponding rental prices for the property. <br><br>Please note that a higher score for housing on this website indicates lower median house prices. </p>
+					<button class = "buttonHse" id ="close_housing"> Close me </button>
+				</div>
+			</div>
+
+			<div class = "cardEvt">
+				<div class="card-contentEvt">
+					<h2 class = "card-titleEvt"> Pollution </h2>
+					<p class = "card-bodyEvt"> Pollution impact as indicator </p>
+					<button class="button" id = "open_environment"> Detailed Description </button>
+				</div>
+			</div>
+			<div id = "modalContainerEvt" class="modal_containerEvt">
+				<div class="modalEvt">
+					<h2> Pollution Metric </h2>
+					<p>With increased discussion around London’s air quality over the last few years, air quality is a key focus of the Mayor of London’s 2018 Environment Strategy. Particulate matter with a diameter of less than 2.5 micrometres (PM2.5) can be found in air samples collected from across London. Due to the small size of the particles, they may enter the bloodstream and collect in the body’s vital organs, with serious implications for the overall health of those that breathe them in. The Pollution data presented on this website uses PM2.5 levels.<br><br>Please note that a higher score for pollution on this website indicates lower pollution levels.</p>
+					<button class = "buttonEvt" id ="close_environment"> Close me </button>
+				</div>
+			</div>
+
+			<div class = "cardNbd">
+				<div class="card-contentNbd">
+					<h2 class = "card-titleNbd"> Open Space </h2>
+					<p class = "card-bodyNbd"> Green/open spaces as indicators </p>
+					<button class="button" id = "open_neighbourhood"> Detailed Description </button>
+				</div>
+			</div>
+			<div id = "modalContainerNbd" class="modal_containerNbd">
+				<div class="modalNbd">
+					<h2> Open Space Metric </h2>
+					<p> Open and green areas provide space for interaction and leisure activities, which are essential factors in determining what makes a neighbourhood liveable. It has been frequently shown that access to parks and green spaces is beneficial for city resident’s health, including having a positive effect upon mental illnesses like depression (Cohen-Cline et al. 2015: 528). <br><br>Hence, green and open spaces were used as a proxy to calculate the ‘neighbourhood’ metric.  To create this metric, data was extracted from the 2013 London Ward Well-Being Scores, under the column “Homes with access to open space & nature, and % greenspace”. Wards are given a score that could be positive and negative, with positive scores indicating a higher probability that the population on average will experience better well-being for that corresponding metric. A score of 0 means that the ward has a score that tallies with the average value in England and Wales for that corresponding indicator. </p>
+					<button class = "buttonNbd" id ="close_neighbourhood"> Close me </button>
+				</div>
+			</div>
+		</div>
+
+		<div id = "metricDescription">
+			<div class = "cardSfe">
+				<div class="card-contentSfe">
+					<h2 class = "card-titleSfe"> Safety </h2>
+					<p class = "card-bodySfe"> Residential burglary as indicator </p>
+					<button class="button" id = "open_safety"> Detailed Description </button>
+				</div>
+			</div>
+			<div id = "modalContainerSfe" class="modal_containerSfe">
+				<div class="modalSfe">
+					<h2> Safety Metric </h2>
+					<p> The safety metric was created using Recorded Crime data provided by the London Metropolitan Police. In particular, 2009 crime data aggregated at the London Ward level was used. Instead of analysing all crime which could skew the data towards high-traffic, touristy areas around Westminster and central London, crimes targeting homes was specifically looked at. Thus, residential burglaries was used as an indicator for safety. Wards with lower levels of home burglaries will therefore be recognised as safer in our model. <br><br>Please note that a higher score for safety on this website indicates a lower number of burglaries.  </p>
+					<button class = "buttonSfe" id ="close_safety"> Close me </button>
+				</div>
+			</div>
+
+			<div class = "cardEdu">
+				<div class="card-contentEdu">
+					<h2 class = "card-titleEdu"> Education </h2>
+					<p class = "card-bodyEdu"> Avg. GCSE scores as indicator </p>
+					<button class="button" id = "open_education"> Detailed Description </button>
+				</div>
+			</div>
+			<div id = "modalContainerEdu" class="modal_containerEdu">
+				<div class="modalEdu">
+					<h2> Education Metric </h2>
+					<p> Between the millennium and 2015, educational performance in Lonon greatly increased, greater than the rest of the UK. However, some areas still lag behind with scores similar to the rest of the country (New Policy Institute, 2016). With this in mind, for those with education as a high priority, location matters. <br><br> To compute the education metric, average GCSE scores were used. Average GCSE scores give important information regarding the educational performance of students living in a particular ward, along with potentially how well the local catchment performs in education. To create this metric, data was extracted from the 2013 London Ward Well-Being Scores, under the column Average "GCSE scores". Wards are given a score that could be positive and negative, with positive scores indicating a higher probability that the population on average will experience better education scores. A score of 0 means that the ward has an educational standard that corresponds with the average of England and Wales. </p>
+					<button class = "buttonEdu" id ="close_education"> Close me </button>
+				</div>
+			</div>
+
+			<div class = "cardTpt">
+				<div class="card-contentTpt">
+					<h2 class = "card-titleTpt"> Transportaion </h2>
+					<p class = "card-bodyTpt"> PTAL scores as indicator </p>
+					<button class="button" id = "open_transport"> Detailed Description </button>
+				</div>
+			</div>
+			<div id = "modalContainerTpt" class="modal_containerTpt">
+				<div class="modalTpt">
+					<h2> Transportation Metric </h2>
+					<p> London is the best connected city in Europe, but on average spend 84 minutes commuting, so access to public transport can make a big difference (Belcher et al 2019: 21). At the same time unequal levels of access to transport can exacerbate inequality, with public transport providing access to jobs, education and recreation, whilst facilitating social inclusion and wellbeing (Gates et al. 2019: 1) <br><br>The transportation metric is informed by the calculated Public Transport Accessibility Level (PTAL) score, aggregated at ward level. Ranging from a value of 1 to 6, PTAL scores indicate how well connected and accessible a place is with regards to public transport. A score of 1 indicates that the corresponding ward has extremely poor access to public transport connections whereas a score of 6 indicates that the ward is very well connected to various public transport options in London. </p>
+					<button class = "buttonTpt" id ="close_transport"> Close me </button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="sectionPadding"></div>
+
+<!-- Ward-wise profiling -->
+	<div id = "wardwideTitle">
+		<h2> Explore which ward has high scores for the metrics you have identified as your priorities: </h2>
+		<hr width="100%" color="grey" size="6px" align="left" />
+	</div>
+
+	<div id = 'WardCharacteristicsMapContainer'>
+	<div id ='WardCharacteristicsText'>
+		<p> Data for the 6 main liveability metrics were compiled and aggregated at ward level. This provides a good indication of the characteristic of a particular ward, in terms of its liveability. </p>
+		<p> Instead of displaying the raw values for each ward, the map demonstrates how each ward performs in each of these indicators, relative to all London wards by taking into account its percentile for each metric. This allows you to compare how certain wards fare in particular metrics, whilst also comparing across different metrics. </p>
+		<p> Given that the distribution for most metrics, median house price had to be logged, were close to normally distributed, this method will also give you an indication of how a particular ward fares, within the distribution. </p>
+	</div>
+
+	<div id ='WCmap'></div>
+
+	<div class='map-overlay' id='features'>
+		<h3> London Ward Characteristics </h3>
+				<div id='WCpd'>
+					<p>Hover over a ward for its characteristic!</p>
+				</div>
+	</div>
+
+</div>
+
+	<div class="sectionPadding"></div>
+
+<!-- Profile introduction -->
+	<div id = "profilesTitle">
+		<h2> Have you found any wards you would like to live in? </h2>
+		<hr width="100%" color="grey" size="6px" align="left" />
+		<p>     If you have, we can help you <a href = #clusterAnalysis> find other areas with similar liveability characteristics</a>. </p>
+		<p>     If you are still unsure, don't fret! We have created 6 general profiles you may identify yourself with to suggest some areas for you to explore. </p>
+		<br>
+		<br>
+	</div>
+
+	<div id="profiles">
+    <table>
+      <tr>
+        <td class="prof_cell", id="prof_first_time_renters">
+          <div class="prof_type">
+						<a href = #Cluster1Container> FIRST TIME RENTERS/STUDENTS </a>
+					</div>
+          <div class="prof_left">
+            <img class="prof_image" src="./img/ProfilePics/FirstTimeRenters.png" alt="First time renters image">
+          </div>
+          <div class="prof_right">
+            <div class="prof_description">
+              <p> Limited budget, currently saving up for a home. Typically want to stay around their friends and ideally live somewhere that is close to the action and bustle of city life.</p>
+            </div>
+        	</div>
+        </td>
+        <td class="prof_cell", id="prof_young_families">
+					<div class="prof_type">
+						<a href = #Cluster3Container> YOUNG FAMILIES  </a>
+					</div>
+          <div class="prof_left">
+            <img class="prof_image" src="./img/ProfilePics/YoungFamilies.png" alt="Young families image">
+          </div>
+          <div class="prof_right">
+            <div class="prof_description">
+              <p> Couples that have recently started a young family, with children below 10 years of age. Facing a big challenge to juggle between career and childcare. Access to transport isn’t too much of a worry given that they own cars for their daily commute. </p>
+						</div>
+      		</div>
+				</td>
+        <td class="prof_cell", id="prof_older_families">
+					<div class="prof_type">
+						<a href = #Cluster3Container> OLDER FAMILIES </a>
+					</div>
+          <div class="prof_left">
+            <img class="prof_image" src="./img/ProfilePics/OldFamilies.png" alt="Older families image">
+          </div>
+          <div class="prof_right">
+            <div class="prof_description">
+              <p> Families with children in their teens. Children are at the age where they can start taking care of themselves, so they’ll ideally rely on public transport to get around.</p>
+						</div>
+        	</div>
+				</td>
+      </tr>
+			<tr>
+        <td class="prof_cell", id="prof_professional_couples">
+					<div class="prof_type">
+						<a href = #Cluster5Container> PROFESSIONAL COUPLES </a>
+					</div>
+          <div class="prof_left">
+            <img class="prof_image" src="./img/ProfilePics/ProfessionalCouples.png" alt="Professional couples image">
+          </div>
+          <div class="prof_right">
+            <div class="prof_description">
+              <p> Career oriented, using the home as a stepping stone for their eventual dream house. This group has a firm grasp on financial knowledge and believe that their homes are an investment asset. </p>
+						</div>
+        	</div>
+				</td>
+        <td class="prof_cell", id="prof_single_income">
+					<div class="prof_type">
+						<a href = #Cluster2Container> SINGLE INCOME OWNERS </a>
+					</div>
+          <div class="prof_left">
+            <img class="prof_image" src="./img/ProfilePics/SingleIncomeOwners.png" alt="Single income owners image">
+          </div>
+          <div class="prof_right">
+            <div class="prof_description">
+              <p> Single parents or bachelor*ettes looking for a place to call home. Access to employment and transport accessibility are main determinant factors for these groups. along with house prices.</p>
+						</div>
+        	</div>
+				</td>
+        <td class="prof_cell", id="prof_retirees">
+					<div class="prof_type">
+						<a href = #Cluster4Container> EMPTY NESTERS AND RETIREES </a>
+					</div>
+          <div class="prof_left">
+            <img class="prof_image" src="./img/ProfilePics/Retirees.png" alt="Retirees image">
+          </div>
+          <div class="prof_right">
+            <div class="prof_description">
+              <p> Retirees and parents whose children have moved out of their houses. An ideal environment is highly sought after for retirement, coupled with good access to health facilities. Transport accessibility is appreciated too, as it reduces the need for the elderly to drive around. Preferably in more quiet parts of the city.</p>
+						</div>
+        	</div>
+				</td>
+      </tr>
+    </table>
+  </div>
+	<div class="sectionPadding"></div>
+
+
+
+<!-- 6 cluster map section -->
+	<div id="clusterAnalysis">
+		<h2> Want us to suggest wards that may fit your preferences? </h2>
+		<hr width="100%" color="grey" size="6px" align="left" />
+		<p> After performing a clustering analysis, we found out that there are 6 types of wards with similar distribution of liveability metrics. </p>
+		<p> Let us introduce those 6 types -
+			<a class="button is-default" id="buttoncentral" a href="#Cluster5Container"> Central London </a>
+			<a class="button is-primary" id="buttonfringe" a href="#Cluster1Container">City Fringe</a>
+			<a class="button is-secondary" id="buttonaffluent" a href="#Cluster3Container">Affluent Suburbs</a>
+			<a class="button is-success" id="buttonsuburbia" a href="#Cluster4Container">Suburbia</a>
+			<a class="button is-danger" id="buttonlagging" a href="#Cluster2Container">Lagging Areas</a>
+			<a class="button is-warning" id="buttonouter" a href="#Cluster6Container">Outer London</a>
+		</p>
+		<p class = "indent"> If you are someone who found certain wards of your linking from our <a href = #wardwideTitle> ward-wide investigation tool </a>, you can find other wards that belong to the same type by looking at the clustering results. </p>
+		<p class = "indent"> If you <a href = #profilesTitle> found a profile </a> you identify yourself with, we have matched each profile to a potential cluster they could belong to. Just look for your chosen profile icon on the following descriptions. </p>
+	</div>
+
+
+	<div id = 'Cluster5Container'>
+		<div class='clusterTitle'>
+			<h2> Central London </h2>
+		</div>
+
+		<div class ='ClusterText'>
+			<h3> Spatial Distribution: </h3>
+			<p>  Right smack in central London, where all the action takes place! Housing here comprise mainly a mix of grade-listed historical buildings and new built apartment blocks.</p>
+			<p>  Characterised by excellent transportation connectivity and high safety level, significantly better compared to all the rest of the clusters. On the other hand, Housing and Pollution scores are the lowest of all. This cluster exhibits the most significant trade-off relationships between some of the metrics. </p>
+			<p>	Users interested in this cluster are especially urged to pay attention to the downsides when looking at areas belonging to the cluster - especially the pollution level, as it is less apparent when choosing houses </p>
+		</div>
+
+
+
+		<div class ='InterestedProfiles'>
+			<h3> People who might be interested in this cluster: </h3>
+		</div>
+
+		<div id ='C5map'></div>
+
+		<div id="spiderDiagramOverlayC5">
+			<img class="prof_image" src="./img/SpiderDiagrams/cluster5.png" alt="First time renters image">
+		</div>
+
+		<div id="ProfessionalCouplesC5">
+			<img class="prof_image" src="./img/ProfilePics/ProfessionalCouples.png">
+		</div>
+
+		<div id="OldFamiliesC5">
+			<img class="prof_image" src="./img/ProfilePics/OldFamilies.png">
+		</div>
+
+	</div>
+
+	<div class="sectionPadding2"></div>
+
+
+	<div id = 'Cluster1Container'>
+		<div class='clusterTitle'>
+			<h2> City Fringe </h2>
+		</div>
+
+		<div class ='ClusterText'>
+				<h3> Spatial Distribution: </h3>
+				<p>  Wards here generally border the London city core, are highly urbanised and comprise mainly of dense, compact apartments.  </p>
+				<p>  Characterised by great public transportation access and high safety level - similar positive characteristics to Central London, but to a lesser extent. On the contrary, the negatives are also less emphasised - though housing price is still high and pollution levels are greater than the rest of the 4 clusters, they are significantly better than Central London.  </p>
+				<p>  This cluster is ideal for users looking for somewhere between Central London and the outer neighbourhoods.  </p>
+		</div>
+
+		<div class ='InterestedProfiles'>
+			<h3> People who might be interested in this cluster: </h3>
+		</div>
+
+		<div id ='C1map'></div>
+
+		<div class="spiderDiagramOverlay">
+			<img class="prof_image" src="./img/SpiderDiagrams/cluster1.png" alt="First time renters image">
+		</div>
+
+		<div class="SingleIncomeOwners">
+			<img class="prof_image" src="./img/ProfilePics/ProfessionalCouples.png">
+		</div>
+
+		<div class="FirstTimeRenters">
+			<img class="prof_image" src="./img/ProfilePics/FirstTimeRenters.png">
+		</div>
+
+	</div>
+
+	<div class="sectionPadding2"></div>
+
+	<div id = 'Cluster3Container'>
+		<div class='clusterTitle'>
+			<h2> Affluent Suburbs </h2>
+		</div>
+
+		<div class ='ClusterText'>
+			<h3> Spatial Distribution: </h3>
+			<p>  Housing within these wards are mainly suburban family homes, nestled within neighbourhoods whose residents perform well socio-economically. </p>
+			<p>  Wards here score the highest in for education, pollution, and safety metrics, with second highest open space. </p>
+			<p>  Ideal for users with sufficient capital to afford the high costs of homes here, and who do not mind the need to own cars. Suited for people looking for a chill life, in an affluent neighbourhood - your classic “suburban dream”. </p>
+		</div>
+
+		<div class ='InterestedProfiles'>
+			<h3> People who might be interested in this cluster: </h3>
+		</div>
+
+		<div id ='C3map'></div>
+
+		<div class="spiderDiagramOverlay">
+			<img class="prof_image" src="./img/SpiderDiagrams/cluster3.png" alt="First time renters image">
+		</div>
+
+		<div class="YoungFamilies">
+			<img class="prof_image" src="./img/ProfilePics/YoungFamilies.png">
+		</div>
+
+		<div class="OldFamilies">
+			<img class="prof_image" src="./img/ProfilePics/OldFamilies.png">
+		</div>
+
+		<div class="Retirees">
+			<img class="prof_image" src="./img/ProfilePics/Retirees.png">
+		</div>
+
+	</div>
+
+	<div class="sectionPadding2"></div>
+
+
+	<div id = 'Cluster4Container'>
+		<div class='clusterTitle'>
+			<h2> Suburbia </h2>
+		</div>
+
+		<div class ='ClusterText'>
+			<h3> Spatial Distribution: </h3>
+			<p>  Homes within these wards comprise mainly suburban single-family homes - your typical mass-market subruban developments.  </p>
+			<p>  Wards here are characterised by the best scores for pollution level and scoring second best in housing after Outer London. Wards in this cluster perform well on the safety metric too. A drawback would be the lack of open space, because neighbourhoods are likely packed with densely packed single family home - tradeoff of cheap housing.  </p>
+			<p>  Ideal for users looking for an affordable suburban home that is not too far away from the city center as well.  </p>
+		</div>
+
+		<div class ='InterestedProfiles'>
+			<h3> People who might be interested in this cluster: </h3>
+		</div>
+
+		<div id ='C4map'></div>
+
+		<div class="spiderDiagramOverlay">
+			<img class="prof_image" src="./img/SpiderDiagrams/cluster4.png" alt="First time renters image">
+		</div>
+
+		<div class="YoungFamilies">
+			<img class="prof_image" src="./img/ProfilePics/YoungFamilies.png">
+		</div>
+
+		<div class="Retirees">
+			<img class="prof_image" src="./img/ProfilePics/Retirees.png">
+		</div>
+
+	</div>
+
+	<div class="sectionPadding2"></div>
+
+
+	<div id = 'Cluster2Container'>
+		<div class='clusterTitle'>
+			<h2> Lagging Areas </h2>
+		</div>
+
+		<div class ='ClusterText'>
+			<h3> Spatial Distribution: </h3>
+			<p>  Residential areas here comprise a mix of suburban homes and apartment blocks. Located within the less sought after parts of town. Wards within these areas tend to perform less well on socio-economic scores.  </p>
+			<p>  Similar to suburbia in terms of most metrics, but the safety score of this cluster is the lowest of all.  </p>
+			<p>  This ward is ideal for persons that are tight on budget and are looking for a relatively easier start on the property ladder could consider these areas.  </p>
+		</div>
+
+		<div class ='InterestedProfiles'>
+			<h3> People who might be interested in this cluster: </h3>
+		</div>
+
+		<div id ='C2map'></div>
+
+		<div class="spiderDiagramOverlay">
+			<img class="prof_image" src="./img/SpiderDiagrams/cluster2.png" alt="First time renters image">
+		</div>
+
+		<div class="SingleIncomeOwners">
+			<img class="prof_image" src="./img/ProfilePics/SingleIncomeOwners.png">
+		</div>
+
+		<div class="FirstTimeRenters">
+			<img class="prof_image" src="./img/ProfilePics/FirstTimeRenters.png">
+		</div>
+
+	</div>
+
+	<div class="sectionPadding2"></div>
+
+
+	<div id = 'Cluster6Container'>
+		<div class='clusterTitle'>
+			<h2> Outer London </h2>
+		</div>
+
+		<div class ='ClusterText'>
+			<h3> Spatial Distribution: </h3>
+			<p>  Wards within this cluster tend to have access to large tracts of green spaces in them, with residential buildings more spaced out than typical suburban neighbourhoods - your one step access to nature!  </p>
+			<p>  Wards within this cluster score highest in open space access, housing, environment, but has the lowest scores in education and transport.  </p>
+			<p>  This cluster would be ideal for those who do not need frequent access to the city or education and appreciate the tranquil neighbourhood with accessible housing.  </p>
+		</div>
+
+		<div class ='InterestedProfiles'>
+			<h3> People who might be interested in this cluster: </h3>
+		</div>
+
+		<div id ='C6map'></div>
+
+		<div class="spiderDiagramOverlay">
+			<img class="prof_image" src="./img/SpiderDiagrams/cluster6.png" alt="First time renters image">
+		</div>
+
+		<div class="Retirees">
+			<img class="prof_image" src="./img/ProfilePics/Retirees.png">
+		</div>
+
+	</div>
+
+	<div class="sectionPadding"></div>
+
+	<!-- Final map -->
+	<div id = "metricDescriptionTitle">
+		<h2> Everything together </h2>
+		<hr/>
+		<p> Thank you for following through with us, here is a map that shows all the results together. </p>
+	</div>
+
+	<div id = 'mapContainer'>
+		<div id ='map'></div>
+
+	<div class='map-overlay' id='features'>
+		<h3> Ward characteristics </h3>
+				<div id='pd'>
+					<p>Hover over a ward for more information</p>
+				</div>
+
+	</div>
+
+	<div id='map-overlay2'>
+	<h3> Cluster Names: </h3>
+		<div id='overlay2text'>
+			<p>1: City Fringe | 2: Lagging Areas | 3: Affluent Suburbs</p>
+			<p>4: Suburbia | 5: Central London | 6: Outer London</p>
+		</div>
+	</div>
+
+
+	<!-- Ward-wise profiling
+		<div id ='WCmap'></div>
+
+		<div class='map-overlay' id='features'>
+			<h3> London Ward Characteristics </h3>
+					<div id='WCpd'>
+						<p>Hover over a ward for its characteristic!</p>
+					</div>
+		</div>
+	</div>
+-->
+
+</div>
+
+<!--
+
+</div>
+
+<h2> References </h2>
+<hr/>
+<p> The charts and graphs on this website were made using <a href="https://canvasjs.com/">CanvasJS</a></p>
+<p> The maps were made using <a href="https://www.mapbox.com/">Mapbox</a></p>
+<p> The transportation, eductation, and access to open space data is available  <a href="https://data.london.gov.uk/dataset/london-ward-well-being-scores">here</a></p>
+<p> The housing data is available  <a href="https://data.london.gov.uk/dataset/ward-profiles-and-atlas">here</a></p>
+<p> The pollution data is available  <a href="https://data.london.gov.uk/dataset/estimation-health-impacts-particulate-pollution-london">here</a></p>
+<p> The crime data is available  <a href="https://data.london.gov.uk/dataset/recorded_crime_summary">here</a></p>
+<br><br>
+<p> Academic Referennces: </p>
+<p> Marsden, J (2015) ‘House prices in London – an economic analysis of London’s housing market’, Greater London Authority. </p>
+<p> Cohen-Cline H., Turkheimer E., Duncan G. (2015) ‘Access to green space, physical activity and mental health: A twin study’, Journal of Epidemiology and Community Health, 69, 523 - 529</p>
+<p> New Policy Institute (2016) ‘Why are some boroughs missing out from London’s education success story?’ (WWW)  (https://www.trustforlondon.org.uk/news/londons-education-success-story-why-some-boroughs-are-missing-out/; 3 May 2022).</p>
+<p> Barrett S., Gariban S., Belcher E. (2019) ‘Fair access: Towards a transport system for everyone’ (WWW) Centre for London (https://www.centreforlondon.org/publication/fair-access/; 1 May 2022).</p>
+<p> Gates S., Gogescu F., Grollman C., Cooper E., Khambhaita P., (2019) ‘Transport and inequality:An evidence review for the Department for Transport’, NatCen </p>
+<p> Department for Environment, Food & Rural Affairs, Uk Gov (2022) ‘Concentration of particulate matter (PM10 and PM2.5)’ (WWW) (https://www.gov.uk/government/statistics/air-quality-statistics/concentrations-of-particulate-matter-pm10-and-pm25; 25 April 2022)</p>
+<p> Greater London Authority (2018) ‘London Environment Strategy’ (WWW)  (https://www.london.gov.uk/sites/default/files/london_environment_strategy_0.pdf; 1 May 2022). </p>
+
+</div>
+
+-->
+
+
+	<!--mapbox stylesheet and js script-->
+	<link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
+	<script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
+
+	<!--mapbox geocoder/searchbar stylesheet and js script-->
+	<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+	<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+
+
+</div>
+
+  <div id="tab">
+    <table>
+      <tr>
+    <!--    <td><a href="./team.html" target="_BLANK"><br><br>TEAM</a></td> -->
+        <td><a href="./data.html" target="_BLANK"><br><br>Data and References</a></td>
+      </tr>
+    </table>
+  </div>
+
+
+
+	<script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
+	<script src="./js/mainWeb.js"></script>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
+
+</div>
+
+	<!--chart-->
+
+
+</body>
